@@ -90,6 +90,8 @@ namespace ShoppingCartLib
 
                     if (quantity >= discountQuanity)
                     {
+                        // This can be done differntly by calculating discounted price per each item and then multiplying it with the quantity. 
+                        // I felt this way is more accurate way as they are decimal values.
                         finalPriceOfItem = (actualPrice * (quantity % discountQuanity)) + ((quantity / discountQuanity) * discountPrice);
                     }
                 }
@@ -143,7 +145,7 @@ namespace ShoppingCartLib
 
             return totalPrice;
         }
-
+        // Added for self testing purpose before adding the test project
         public static void Main()
         {
             Sale saleOrder = new Sale();
