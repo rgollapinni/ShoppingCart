@@ -29,7 +29,7 @@ namespace ShoppingCartLib
             {
                 if ((item.Length <= 0) || (price < 0.0m))
                 {
-                    throw new Exception("Invalid entry !!");
+                    throw new Exception("Invalid item/price !!");
 
                 }
 
@@ -49,7 +49,7 @@ namespace ShoppingCartLib
             {
                 if ((item.Length <= 0) || (price < 0.0m))
                 {
-                    throw new Exception("Invalid entry !!");
+                    throw new Exception("Invalid item/price !!");
                 }
 
                 discount[discountQuantity] = price;
@@ -70,9 +70,9 @@ namespace ShoppingCartLib
 
             try
             {
-                if (item.Length == 0)
+                if ((item.Length == 0) || (quantity < 0))
                 {
-                    throw new Exception("Invalid item");
+                    throw new Exception("Invalid item/quantity");
                 }
 
                 actualPrice = itemPrices[item];
@@ -124,7 +124,7 @@ namespace ShoppingCartLib
 
         }
 
-        public void AddItemToCart(string item)
+        private void AddItemToCart(string item)
         {
             int quantityCount;
             if (itemQuantities.TryGetValue(item, out quantityCount))
